@@ -17,51 +17,39 @@ public class LibrarySystemUI {
         System.out.println("Welcome to the library system! This system is currently fully empty. Please choose an option:");
         while (true) {
             System.out.println("1. Add book");
-            System.out.println("2. Add user");
-            System.out.println("3. Find book by title");
-            System.out.println("4. Find user by name");
-            System.out.println("5. Borrow book");
-            System.out.println("6. Return book");
-            System.out.println("7. Extend lending");
-            System.out.println("8. Print Lendings of user");
-            System.out.println("9. Exit");
-            System.out.print("Enter choice: ");
-            int choice = scanner.nextInt();
-            scanner.nextLine(); // consume newline
-    
-            switch (choice) {
-                case 1:
-                    addBook();
-                    break;
-                case 2:
-                    addUser();
-                    break;
-                case 3:
-                    findBookByTitle();
-                    break;
-                case 4:
-                    findUserByName();
-                    break;
-                case 5:
-                    borrowBook();
-                    break;
-                case 6:
-                    returnBook();
-                    break;
-                case 7:
-                    extendLending();
-                    break;
-                case 8:
-                    printLendings();
-                    break;
-                case 9:
-                    System.out.println("Exiting...");
-                    return;
-                default:
-                    System.out.println("Invalid choice");
-            }
+        System.out.println("2. Add user");
+        System.out.println("3. Find book by title");
+        System.out.println("4. Find user by name");
+        System.out.println("5. Manage lendings");
+        System.out.println("6. Exit");
+        System.out.print("Enter choice: ");
+        int choice = scanner.nextInt();
+        scanner.nextLine(); // consume newline
+
+        switch (choice) {
+            case 1:
+                addBook();
+                break;
+            case 2:
+                addUser();
+                break;
+            case 3:
+                findBookByTitle();
+                break;
+            case 4:
+                findUserByName();
+                break;
+            case 5:
+                manageLendings();
+                break;
+            case 6:
+                System.out.println("Exiting...");
+                return;
+            default:
+                System.out.println("Invalid choice");
         }
     }
+}
     
     private void addBook() throws EmptyAuthorListException {
         System.out.println("1. Add book with single author");
@@ -173,6 +161,38 @@ public class LibrarySystemUI {
             System.out.println("User found: " + user.getName() + " (" + userType + ")");
         } catch (Exception e) {
             System.out.println("No user found with the given name");
+        }
+    }
+
+    private void manageLendings() {
+        while (true) {
+            System.out.println("1. Print all lendings from user");
+            System.out.println("2. Borrow book");
+            System.out.println("3. Return book");
+            System.out.println("4. Extend lending");
+            System.out.println("5. Back to main menu");
+            System.out.print("Enter choice: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // consume newline
+    
+            switch (choice) {
+                case 1:
+                    printLendings();
+                    break;
+                case 2:
+                    borrowBook();
+                    break;
+                case 3:
+                    returnBook();
+                    break;
+                case 4:
+                    extendLending();
+                    break;
+                case 5:
+                    return;
+                default:
+                    System.out.println("Invalid choice");
+            }
         }
     }
     
