@@ -2,7 +2,6 @@ package is.hi.hbv202g.assignment8;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.time.LocalDate;
 
 /*
  * This main function shows some abilities of the library system class
@@ -31,7 +30,7 @@ public class Main
         myLibrarySystem.borrowBook(Andri, Intro);
         myLibrarySystem.printLendings(Noella);
         myLibrarySystem.printLendings(Andri);
-        myLibrarySystem.extendLending((FacultyMember) Andri, Intro, LocalDate.now().plusDays(60));
+        myLibrarySystem.extendLending((FacultyMember) Andri, Intro, 14);
         myLibrarySystem.returnBook(Noella, HarryP);
         myLibrarySystem.printLendings(Noella);
         myLibrarySystem.printLendings(Andri);

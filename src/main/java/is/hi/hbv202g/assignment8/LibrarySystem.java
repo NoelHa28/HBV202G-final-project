@@ -1,6 +1,5 @@
 package is.hi.hbv202g.assignment8;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,10 +55,10 @@ public class LibrarySystem {
         this.lendings.add(new Lending(foundBook, foundUser));
     }
 
-    public void extendLending(User andri, Book book, LocalDate newDueDate) {
+    public void extendLending(User andri, Book book, int days) {
         for (Lending lending : this.lendings) {
             if (lending.getBook().equals(book) && lending.getUser().equals(andri)) {
-                lending.setDueDate(newDueDate);
+                lending.setDueDate(lending.getDueDate().plusDays(days));
                 break;
             }
         }

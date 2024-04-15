@@ -14,6 +14,7 @@ public class LibrarySystemUI {
     }
 
     public void start() throws EmptyAuthorListException {
+        System.out.println("Welcome to the library system! This system is currently fully empty. Please choose an option:");
         while (true) {
             System.out.println("1. Add book");
             System.out.println("2. Add user");
@@ -21,7 +22,9 @@ public class LibrarySystemUI {
             System.out.println("4. Find user by name");
             System.out.println("5. Borrow book");
             System.out.println("6. Return book");
-            System.out.println("7. Exit");
+            System.out.println("7. Extend lending");
+            System.out.println("8. Print Lendings of user");
+            System.out.println("9. Exit");
             System.out.print("Enter choice: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); // consume newline
@@ -46,6 +49,12 @@ public class LibrarySystemUI {
                     returnBook();
                     break;
                 case 7:
+                    extendLending();
+                    break;
+                case 8:
+                    printLendings();
+                    break;
+                case 9:
                     System.out.println("Exiting...");
                     return;
                 default:
@@ -194,6 +203,35 @@ public class LibrarySystemUI {
             System.out.println("Book returned successfully");
         } catch (Exception e) {
             System.out.println("Failed to return book: " + e.getMessage());
+        }
+    }
+
+    private void printLendings() {
+        System.out.print("Enter user name: ");
+        String userName = scanner.nextLine();
+        try {
+            User user = librarySystem.findUserByName(userName);
+            librarySystem.printLendings(user);
+        } catch (UserOrBookDoesNotExistException e) {
+            System.out.println("Failed to find user: " + e.getMessage());
+        }
+    }
+
+    private void extendLending() {
+        System.out.print("Enter user name: ");
+        String userName = scanner.nextLine();
+        System.out.print("Enter book title: ");
+        String bookTitle = scanner.nextLine();
+        System.out.print("Enter number of days to extend: ");
+        int days = scanner.nextInt();
+        scanner.nextLine(); // consume newline
+        try {
+            User user = librarySystem.findUserByName(userName);
+            Book book = librarySystem.findBookByTitle(bookTitle);
+            librarySystem.extendLending(user, book, days);
+            System.out.println("Lending extended for " + days + " days successfully");
+        } catch (Exception e) {
+            System.out.println("Failed to extend lending: " + e.getMessage());
         }
     }
 
