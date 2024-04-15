@@ -19,7 +19,9 @@ public class LibrarySystemUI {
             System.out.println("2. Add user");
             System.out.println("3. Find book by title");
             System.out.println("4. Find user by name");
-            System.out.println("5. Exit");
+            System.out.println("5. Borrow book");
+            System.out.println("6. Return book");
+            System.out.println("7. Exit");
             System.out.print("Enter choice: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); // consume newline
@@ -38,6 +40,12 @@ public class LibrarySystemUI {
                     findUserByName();
                     break;
                 case 5:
+                    borrowBook();
+                    break;
+                case 6:
+                    returnBook();
+                    break;
+                case 7:
                     System.out.println("Exiting...");
                     return;
                 default:
@@ -154,8 +162,38 @@ public class LibrarySystemUI {
             User user = librarySystem.findUserByName(name);
             String userType = (user instanceof FacultyMember) ? "FacultyMember" : "Student";
             System.out.println("User found: " + user.getName() + " (" + userType + ")");
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("No user found with the given name");
+        }
+    }
+    
+    private void borrowBook() {
+        System.out.print("Enter user name: ");
+        String userName = scanner.nextLine();
+        System.out.print("Enter book title: ");
+        String bookTitle = scanner.nextLine();
+        try {
+            User user = librarySystem.findUserByName(userName);
+            Book book = librarySystem.findBookByTitle(bookTitle);
+            librarySystem.borrowBook(user, book);
+            System.out.println("Book borrowed successfully");
+        } catch (Exception e) {
+            System.out.println("Failed to borrow book: " + e.getMessage());
+        }
+    }
+
+    private void returnBook() {
+        System.out.print("Enter user name: ");
+        String userName = scanner.nextLine();
+        System.out.print("Enter book title: ");
+        String bookTitle = scanner.nextLine();
+        try {
+            User user = librarySystem.findUserByName(userName);
+            Book book = librarySystem.findBookByTitle(bookTitle);
+            librarySystem.returnBook(user, book);
+            System.out.println("Book returned successfully");
+        } catch (Exception e) {
+            System.out.println("Failed to return book: " + e.getMessage());
         }
     }
 
