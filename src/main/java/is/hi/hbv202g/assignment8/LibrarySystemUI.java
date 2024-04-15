@@ -14,42 +14,91 @@ public class LibrarySystemUI {
     }
 
     public void start() throws EmptyAuthorListException {
-        System.out.println("Welcome to the library system! This system is currently fully empty. Please choose an option:");
+        System.out.println(
+                "Welcome to the library system! This system is currently fully empty. Please choose an option:");
         while (true) {
-            System.out.println("1. Add book");
-        System.out.println("2. Add user");
-        System.out.println("3. Find book by title");
-        System.out.println("4. Find user by name");
-        System.out.println("5. Manage lendings");
-        System.out.println("6. Exit");
-        System.out.print("Enter choice: ");
-        int choice = scanner.nextInt();
-        scanner.nextLine(); // consume newline
+            System.out.println("1. Manage books");
+            System.out.println("2. Manage users");
+            System.out.println("3. Manage lendings");
+            System.out.println("4. Exit");
+            System.out.print("Enter choice: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
 
-        switch (choice) {
-            case 1:
-                addBook();
-                break;
-            case 2:
-                addUser();
-                break;
-            case 3:
-                findBookByTitle();
-                break;
-            case 4:
-                findUserByName();
-                break;
-            case 5:
-                manageLendings();
-                break;
-            case 6:
-                System.out.println("Exiting...");
-                return;
-            default:
-                System.out.println("Invalid choice");
+            switch (choice) {
+                case 1:
+                    manageBooks();
+                    break;
+                case 2:
+                    manageUsers();
+                    break;
+                case 3:
+                    manageLendings();
+                    break;
+                case 4:
+                    System.out.println("Exiting...");
+                    return;
+                default:
+                    System.out.println("Invalid choice");
+            }
         }
     }
-}
+
+    private void manageBooks() throws EmptyAuthorListException {
+        while (true) {
+            System.out.println("1. Add book");
+            System.out.println("2. Find book by title");
+            System.out.println("3. Print all books");
+            System.out.println("4. Back to main menu");
+            System.out.print("Enter choice: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // consume newline
+
+            switch (choice) {
+                case 1:
+                    addBook();
+                    break;
+                case 2:
+                    findBookByTitle();
+                    break;
+                case 3:
+                    printAllBooks();
+                    break;
+                case 4:
+                    return;
+                default:
+                    System.out.println("Invalid choice");
+            }
+        }
+    }
+    
+    private void manageUsers() {
+        while (true) {
+            System.out.println("1. Add user");
+            System.out.println("2. Find user by name");
+            System.out.println("3. Print all users");
+            System.out.println("4. Back to main menu");
+            System.out.print("Enter choice: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // consume newline
+    
+            switch (choice) {
+                case 1:
+                    addUser();
+                    break;
+                case 2:
+                    findUserByName();
+                    break;
+                case 3:
+                    printAllUsers();
+                    break;
+                case 4:
+                    return;
+                default:
+                    System.out.println("Invalid choice");
+            }
+        }
+    }
     
     private void addBook() throws EmptyAuthorListException {
         System.out.println("1. Add book with single author");
@@ -138,18 +187,23 @@ public class LibrarySystemUI {
         String title = scanner.nextLine();
         try {
             Book book = librarySystem.findBookByTitle(title);
-            StringBuilder authors = new StringBuilder();
-            for (Author author : book.getAuthors()) {
-                authors.append(author.getName()).append(", ");
-            }
-            // Remove the trailing comma and space
-            if (authors.length() > 0) {
-                authors.setLength(authors.length() - 2);
-            }
+            StringBuilder authors = printAuthors(book);
             System.out.println("Book found: " + book.getTitle() + " by " + authors);
         } catch (Exception e) {
             System.out.println("No book found with the given title");
         }
+    }
+
+    private StringBuilder printAuthors(Book book) {
+        StringBuilder authors = new StringBuilder();
+        for (Author author : book.getAuthors()) {
+            authors.append(author.getName()).append(", ");
+        }
+        // Remove the trailing comma and space
+        if (authors.length() > 0) {
+            authors.setLength(authors.length() - 2);
+        }
+        return authors;
     }
     
     private void findUserByName() {
@@ -159,8 +213,33 @@ public class LibrarySystemUI {
             User user = librarySystem.findUserByName(name);
             String userType = (user instanceof FacultyMember) ? "FacultyMember" : "Student";
             System.out.println("User found: " + user.getName() + " (" + userType + ")");
+            librarySystem.printLendings(user);
         } catch (Exception e) {
             System.out.println("No user found with the given name");
+        }
+    }
+
+    private void printAllUsers() {
+        List<User> users = librarySystem.getAllUsers();
+        System.out.println("The following users are found: ");
+        for (User user : users) {
+            String userType = (user instanceof FacultyMember) ? "FacultyMember" : "Student";
+            System.out.println(user.getName() + " (" + userType + ")");
+        }
+        if (users.isEmpty()) {
+            System.out.println("No users found");
+        }
+    }
+    
+    private void printAllBooks() {
+        List<Book> books = librarySystem.getAllBooks();
+        System.out.println("The following books are found in the library: ");
+        for (Book book : books) {
+            StringBuilder authors = printAuthors(book);
+            System.out.println(book.getTitle() + " by " + authors);
+        }
+        if (books.isEmpty()) {
+            System.out.println("No books found");
         }
     }
 

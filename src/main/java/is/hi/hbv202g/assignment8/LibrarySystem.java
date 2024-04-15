@@ -14,6 +14,14 @@ public class LibrarySystem {
         this.lendings = new ArrayList<>();
     }
 
+    public List<User> getAllUsers() {
+        return new ArrayList<>(this.users);
+    }
+    
+    public List<Book> getAllBooks() {
+        return new ArrayList<>(this.books);
+    }
+
     public void addBookWithTitleAndNameOfSingleAuthor(String title, String authorName) {
         this.books.add(new Book(title, authorName));
     }
