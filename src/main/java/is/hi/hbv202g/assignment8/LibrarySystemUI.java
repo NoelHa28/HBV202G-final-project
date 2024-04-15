@@ -36,7 +36,7 @@ public class LibrarySystemUI {
                     manageLendings();
                     break;
                 case 4:
-                    System.out.println("Exiting...");
+                    System.out.println("Thank you for using the library system!");
                     return;
                 default:
                     System.out.println("Invalid choice");
