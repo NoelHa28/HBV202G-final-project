@@ -12,7 +12,7 @@ public class Main
     public static void main( String[] args ) throws EmptyAuthorListException, UserOrBookDoesNotExistException
     {
         LibrarySystem myLibrarySystem = new LibrarySystem();
-        myLibrarySystem.addStudentUser("Noëlla Hilgen", true);
+        myLibrarySystem.addStudentUser("Noella Hilgen", true);
         myLibrarySystem.addFacultyMemberUser("Andri Gudjohnsen", "Computer Science");
         myLibrarySystem.addBookWithTitleAndNameOfSingleAuthor("Harry Potter and the Philosopher's Stone",
                 "J.K. Rowling");
@@ -22,17 +22,11 @@ public class Main
         authorsbook2.add(new Author("Ronald L. Rivest"));
         authorsbook2.add(new Author("Clifford Stein"));
         myLibrarySystem.addBookWithTitleAndAuthorList("Introduction to Algorithms", authorsbook2);
-        User Noella = myLibrarySystem.findUserByName("Noëlla Hilgen");
-        User Andri = myLibrarySystem.findUserByName("Andri Gudjohnsen");
-        Book HarryP = myLibrarySystem.findBookByTitle("Harry Potter and the Philosopher's Stone");
-        Book Intro = myLibrarySystem.findBookByTitle("Introduction to Algorithms");
-        myLibrarySystem.borrowBook(Noella, HarryP);
-        myLibrarySystem.borrowBook(Andri, Intro);
-        myLibrarySystem.printLendings(Noella);
-        myLibrarySystem.printLendings(Andri);
-        myLibrarySystem.extendLending((FacultyMember) Andri, Intro, 14);
-        myLibrarySystem.returnBook(Noella, HarryP);
-        myLibrarySystem.printLendings(Noella);
-        myLibrarySystem.printLendings(Andri);
+
+        // Initialize the UI with the library system
+        LibrarySystemUI ui = new LibrarySystemUI(myLibrarySystem);
+
+        // Start the UI
+        ui.start();
     }
 }

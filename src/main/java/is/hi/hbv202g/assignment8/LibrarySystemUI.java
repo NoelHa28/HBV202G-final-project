@@ -8,14 +8,14 @@ public class LibrarySystemUI {
     private LibrarySystem librarySystem;
     private Scanner scanner;
 
-    public LibrarySystemUI() {
-        this.librarySystem = new LibrarySystem();
+    public LibrarySystemUI(LibrarySystem librarySystem) {
+        this.librarySystem = librarySystem;
         this.scanner = new Scanner(System.in);
     }
 
     public void start() throws EmptyAuthorListException {
         System.out.println(
-                "Welcome to the library system! This system is currently fully empty. Please choose an option:");
+                "Welcome to the library system! Please choose an option:");
         while (true) {
             System.out.println("1. Manage books");
             System.out.println("2. Manage users");
@@ -332,9 +332,5 @@ public class LibrarySystemUI {
         } catch (Exception e) {
             System.out.println("Failed to extend lending: " + e.getMessage());
         }
-    }
-
-    public static void main(String[] args) throws EmptyAuthorListException {
-        new LibrarySystemUI().start();
     }
 }
