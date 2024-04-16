@@ -24,7 +24,7 @@ public class Main
         myLibrarySystem.addBookWithTitleAndAuthorList("Introduction to Algorithms", authorsbook2);
 
         // Initialize the UI with the library system
-        LibrarySystemUI ui = new LibrarySystemUI(myLibrarySystem);
+        NewLibrarySystemUI ui = new NewLibrarySystemUI(myLibrarySystem);
 
         // Start the UI
         ui.start();
