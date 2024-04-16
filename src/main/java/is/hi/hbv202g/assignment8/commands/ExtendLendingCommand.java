@@ -25,7 +25,6 @@ public class ExtendLendingCommand implements Command {
             User user = librarySystem.findUserByName(userName);
             Book book = librarySystem.findBookByTitle(bookTitle);
             librarySystem.extendLending(user, book, days);
-            System.out.println("Lending extended for " + days + " days successfully");
         } catch (Exception e) {
             System.out.println("Failed to extend lending: " + e.getMessage());
         }

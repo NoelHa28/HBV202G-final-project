@@ -26,12 +26,11 @@ public class AddBookMultipleAuthorsCommand implements Command {
         for (int i = 0; i < numAuthors; i++) {
             System.out.print("Enter name of author " + (i + 1) + ": ");
             String authorName = scanner.nextLine();
-            Author author = new Author(authorName); // Create a new Author object
-            authors.add(author); // Add the Author object to the list
+            Author author = new Author(authorName);
+            authors.add(author);
         }
         try {
             librarySystem.addBookWithTitleAndAuthorList(title, authors);
-            System.out.println("Book added successfully");
         } catch (EmptyAuthorListException e) {
             System.out.println("Error: Author list is empty");
         }

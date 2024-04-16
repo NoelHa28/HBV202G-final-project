@@ -19,6 +19,5 @@ public class AddBookSingleAuthorCommand implements Command {
         System.out.print("Enter author name: ");
         String authorName = scanner.nextLine();
         librarySystem.addBookWithTitleAndNameOfSingleAuthor(title, authorName);
-        System.out.println("Book added successfully");
     }
 }

@@ -22,7 +22,6 @@ public class BorrowBookCommand implements Command {
             User user = librarySystem.findUserByName(userName);
             Book book = librarySystem.findBookByTitle(bookTitle);
             librarySystem.borrowBook(user, book);
-            System.out.println("Book borrowed successfully");
         } catch (Exception e) {
             System.out.println("Failed to borrow book: " + e.getMessage());
         }

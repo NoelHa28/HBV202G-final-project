@@ -19,6 +19,5 @@ public class AddStudentUserCommand implements Command {
         System.out.print("Has student paid fee (yes/no): ");
         boolean feePaid = scanner.nextLine().equalsIgnoreCase("yes");
         librarySystem.addStudentUser(name, feePaid);
-        System.out.println("Student user added successfully");
     }
 }

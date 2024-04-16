@@ -19,6 +19,5 @@ public class AddFacultyMemberUserCommand implements Command {
         System.out.print("Enter faculty member department: ");
         String department = scanner.nextLine();
         librarySystem.addFacultyMemberUser(name, department);
-        System.out.println("Faculty member user added successfully");
     }
 }

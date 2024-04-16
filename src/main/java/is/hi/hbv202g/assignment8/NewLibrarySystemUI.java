@@ -5,13 +5,14 @@ import java.util.Map;
 import java.util.Scanner;
 import is.hi.hbv202g.assignment8.commands.*;
 
-public class NewLibrarySystemUI {
+public class NewLibrarySystemUI implements Observer {
     private LibrarySystem librarySystem;
     private Scanner scanner;
     private Map<Integer, Command> commands;
 
     public NewLibrarySystemUI(LibrarySystem librarySystem) {
         this.librarySystem = librarySystem;
+        this.librarySystem.addObserver(this);
         this.scanner = new Scanner(System.in);
         this.commands = new HashMap<>();
         this.commands.put(1, new AddBookSingleAuthorCommand(librarySystem, scanner));
@@ -26,7 +27,11 @@ public class NewLibrarySystemUI {
         this.commands.put(10, new BorrowBookCommand(librarySystem, scanner));
         this.commands.put(11, new ReturnBookCommand(librarySystem, scanner));
         this.commands.put(12, new ExtendLendingCommand(librarySystem, scanner));
+    }
 
+    @Override
+    public void update(String message) {
+        System.out.println(message);
     }
 
     public void start() throws EmptyAuthorListException {
@@ -69,21 +74,12 @@ public class NewLibrarySystemUI {
             System.out.println("2024. Back to main menu");
             System.out.print("Enter choice: ");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // consume newline
+            scanner.nextLine();
             
             if (choice == 2024) {
                 return;
             }
             getCommand(choice);
-        }
-    }
-
-    private void getCommand(int choice) {
-        Command command = commands.get(choice);
-        if (command != null) {
-            command.execute();
-        } else {
-            System.out.println("Unknown command");
         }
     }
 
@@ -96,7 +92,7 @@ public class NewLibrarySystemUI {
             System.out.println("2024. Back to main menu");
             System.out.print("Enter choice: ");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // consume newline
+            scanner.nextLine();
             
             if (choice == 2024) {
                 return;
@@ -114,12 +110,21 @@ public class NewLibrarySystemUI {
             System.out.println("2024. Back to main menu");
             System.out.print("Enter choice: ");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // consume newline
-    
+            scanner.nextLine();
+
             if (choice == 2024) {
                 return;
             }
             getCommand(choice);
+        }
+    }
+
+    private void getCommand(int choice) {
+        Command command = commands.get(choice);
+        if (command != null) {
+            command.execute();
+        } else {
+            System.out.println("Unknown command");
         }
     }
 }
