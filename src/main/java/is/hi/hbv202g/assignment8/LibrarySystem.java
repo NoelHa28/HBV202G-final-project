@@ -5,11 +5,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class LibrarySystem extends Observable {
+    private static LibrarySystem instance;
     private List<User> users;
     private List<Book> books;
     private List<Lending> lendings;
 
-    public LibrarySystem() {
+    private LibrarySystem() {
         this.users = new ArrayList<>();
         this.books = new ArrayList<>();
         this.lendings = new ArrayList<>();
@@ -17,6 +18,13 @@ public class LibrarySystem extends Observable {
 
     public List<User> getAllUsers() {
         return new ArrayList<>(this.users);
+    }
+
+    public static LibrarySystem getInstance() {
+        if (instance == null) {
+            instance = new LibrarySystem();
+        }
+        return instance;
     }
     
     public List<Book> getAllBooks() {

@@ -1,5 +1,6 @@
 package is.hi.hbv202g.assignment8;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -10,6 +11,15 @@ public class MainTest
     @Test
     public void shouldBePossibleToInstantiateLibrarySystem()
     {
-        new LibrarySystem();
+        LibrarySystem librarySystem = LibrarySystem.getInstance();
+        Assert.assertNotNull(librarySystem);
+    }
+
+    @Test
+    public void testIfLibrarySystemIsSingleton()
+    {
+        LibrarySystem librarySystem1 = LibrarySystem.getInstance();
+        LibrarySystem librarySystem2 = LibrarySystem.getInstance();
+        Assert.assertSame(librarySystem1, librarySystem2);
     }
 }

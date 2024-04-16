@@ -9,7 +9,7 @@ public class LibrarySystemTest {
 
     @Before
     public void setUp() {
-        librarySystem = new LibrarySystem();
+        librarySystem = LibrarySystem.getInstance();
         librarySystem.addStudentUser("Kristofer", true);
         librarySystem.addFacultyMemberUser("Andri", "Computer Science");
         librarySystem.addBookWithTitleAndNameOfSingleAuthor("Dune", "Frank Herbert");

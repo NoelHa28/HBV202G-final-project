@@ -11,7 +11,7 @@ public class Main
 {
     public static void main( String[] args ) throws EmptyAuthorListException, UserOrBookDoesNotExistException
     {
-        LibrarySystem myLibrarySystem = new LibrarySystem();
+        LibrarySystem myLibrarySystem = LibrarySystem.getInstance();
         myLibrarySystem.addStudentUser("Noella Hilgen", true);
         myLibrarySystem.addFacultyMemberUser("Andri Gudjohnsen", "Computer Science");
         myLibrarySystem.addBookWithTitleAndNameOfSingleAuthor("Harry Potter and the Philosopher's Stone",
