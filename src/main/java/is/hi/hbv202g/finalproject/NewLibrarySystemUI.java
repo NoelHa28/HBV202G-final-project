@@ -5,11 +5,22 @@ import java.util.Map;
 import java.util.Scanner;
 import is.hi.hbv202g.finalproject.commands.*;
 
+/**
+ * This class provides a user interface for the library system.
+ * It implements the Observer interface to get updates from the library system.
+ */
 public class NewLibrarySystemUI implements Observer {
     private LibrarySystem librarySystem;
     private Scanner scanner;
     private Map<Integer, Command> commands;
 
+    /**
+     * Constructs a new NewLibrarySystemUI object and uses the command design pattern.
+     * Initializes the library system, scanner, and commands.
+     * Adds this UI as an observer of the library system.
+     *
+     * @param librarySystem the library system that this UI interacts with
+     */
     public NewLibrarySystemUI(LibrarySystem librarySystem) {
         this.librarySystem = librarySystem;
         this.librarySystem.addObserver(this);
@@ -34,6 +45,11 @@ public class NewLibrarySystemUI implements Observer {
         System.out.println(message);
     }
 
+    /**
+     * Starts the library system. This is the main entry point of the application.
+     * It provides a menu for the user to manage books, users, and lendings.
+     * @throws EmptyAuthorListException if the author list for a book is empty
+     */
     public void start() throws EmptyAuthorListException {
         System.out.println(
                 "Welcome to the library system! Please choose an option:");
@@ -65,6 +81,11 @@ public class NewLibrarySystemUI implements Observer {
         }
     }
 
+    /**
+     * Provides a sub-menu for managing books in the library system.
+     * 
+     * @throws EmptyAuthorListException if the author list for a book is empty
+     */
     private void manageBooks() throws EmptyAuthorListException {
         while (true) {
             System.out.println("1. Add book with single author");
@@ -75,7 +96,7 @@ public class NewLibrarySystemUI implements Observer {
             System.out.print("Enter choice: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
-            
+
             if (choice == 2024) {
                 return;
             }
@@ -83,6 +104,9 @@ public class NewLibrarySystemUI implements Observer {
         }
     }
 
+    /**
+     * Provides a sub-menu for managing users in the library system.
+     */
     private void manageUsers() {
         while (true) {
             System.out.println("5. Add faculty member user");
@@ -93,7 +117,7 @@ public class NewLibrarySystemUI implements Observer {
             System.out.print("Enter choice: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
-            
+
             if (choice == 2024) {
                 return;
             }
@@ -101,6 +125,9 @@ public class NewLibrarySystemUI implements Observer {
         }
     }
 
+    /**
+     * Provides a sub-menu for managing lendings in the library system.
+     */
     private void manageLendings() {
         while (true) {
             System.out.println("9. Print all lendings from user");
@@ -119,6 +146,12 @@ public class NewLibrarySystemUI implements Observer {
         }
     }
 
+    /**
+     * Executes the command associated with the given choice number.
+     * If the choice number is not associated with any command, it prints "Unknown command".
+     *
+     * @param choice the number associated with the command to execute
+     */
     private void getCommand(int choice) {
         Command command = commands.get(choice);
         if (command != null) {

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
- * This main function shows some abilities of the library system class
+ * This main function creates a simple library system and starts the UI.
  * 
  */
 public class Main

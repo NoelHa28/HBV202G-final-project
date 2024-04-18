@@ -33,6 +33,7 @@ public class LibrarySystem extends Observable {
 
     /**
      * Returns the singleton instance of the library system.
+     * 
      * @return the singleton instance.
      */
     public static LibrarySystem getInstance() {
@@ -44,6 +45,7 @@ public class LibrarySystem extends Observable {
     
     /**
      * Returns a list of all books in the library system.
+     * 
      * @return a list of all books.
      */
     public List<Book> getAllBooks() {
@@ -52,6 +54,7 @@ public class LibrarySystem extends Observable {
 
     /**
      * Adds a book with a single author to the library system and notifies observers.
+     * 
      * @param title the title of the book.
      * @param authorName the name of the author.
      */
@@ -62,6 +65,7 @@ public class LibrarySystem extends Observable {
 
     /**
      * Adds a book with multiple authors to the library system and notifies observers.
+     * 
      * @param title the title of the book.
      * @param authors a list of authors.
      * @throws EmptyAuthorListException if the list of authors is empty.
@@ -76,6 +80,7 @@ public class LibrarySystem extends Observable {
 
     /**
      * Adds a student user to the library system and notifies observers.
+     * 
      * @param name the name of the student.
      * @param feePaid whether the student has paid the fee.
      */
@@ -86,6 +91,7 @@ public class LibrarySystem extends Observable {
 
     /**
      * Adds a faculty member user to the library system and notifies observers.
+     * 
      * @param name the name of the faculty member.
      * @param department the department of the faculty member.
      */
@@ -97,6 +103,7 @@ public class LibrarySystem extends Observable {
 
     /**
      * Finds a book by its title.
+     * 
      * @param title the title of the book.
      * @return the book with the given title.
      * @throws UserOrBookDoesNotExistException if the book does not exist.
@@ -112,6 +119,7 @@ public class LibrarySystem extends Observable {
 
     /**
      * Finds a user by their name.
+     * 
      * @param name the name of the user.
      * @return the user with the given name.
      * @throws UserOrBookDoesNotExistException if the user does not exist.
@@ -127,6 +135,7 @@ public class LibrarySystem extends Observable {
 
     /**
      * Allows a user to borrow a book and notifies observers.
+     * 
      * @param user the user who wants to borrow the book.
      * @param book the book to be borrowed.
      * @throws UserOrBookDoesNotExistException if the user or book does not exist.
@@ -141,6 +150,7 @@ public class LibrarySystem extends Observable {
 
     /**
      * Extends the lending period of a book for a user and notifies observers.
+     * 
      * @param user the user who wants to extend the lending period.
      * @param book the book to extend the lending period for.
      * @param days the number of days to extend the lending period by.
@@ -157,6 +167,7 @@ public class LibrarySystem extends Observable {
 
     /**
      * Allows a user to return a book and notifies observers.
+     * 
      * @param user the user who wants to return the book.
      * @param book the book to be returned.
      * @throws UserOrBookDoesNotExistException if the book was not borrowed by this user.
@@ -178,6 +189,7 @@ public class LibrarySystem extends Observable {
     
     /**
      * Prints the lendings of a user.
+     * 
      * @param user the user whose lendings are to be printed.
      */
     public void printLendings(User user) {
