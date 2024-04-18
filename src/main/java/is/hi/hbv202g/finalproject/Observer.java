@@ -1,7 +1,7 @@
 package is.hi.hbv202g.finalproject;
 
 /**
- * This interface represents an observer in the observer design pattern.
+ * Interface that represents an observer in the observer design pattern.
  * Classes that need to be notified of changes by an Observable class implement this interface.
  */
 public interface Observer {

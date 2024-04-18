@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This abstract class represents an observable object.
+ * Abstract class that represents an observable object.
  * It can be subclassed to represent an object that the application wants to have observed.
  */
 public abstract class Observable {

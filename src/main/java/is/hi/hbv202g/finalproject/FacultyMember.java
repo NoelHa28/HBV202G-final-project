@@ -1,7 +1,7 @@
 package is.hi.hbv202g.finalproject;
 
 /**
- * Represents a faculty member with a name and a department.
+ * Class that represents a faculty member with a name and a department.
  * FacultyMember is a subclass of User.
  */
 public class FacultyMember extends User {

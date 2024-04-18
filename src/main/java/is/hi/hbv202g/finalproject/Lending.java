@@ -3,7 +3,7 @@ package is.hi.hbv202g.finalproject;
 import java.time.LocalDate;
 
 /**
- * Represents a lending of a book by a user with a due date.
+ * Class that represents a lending of a book by a user with a due date.
  */
 public class Lending {
     private LocalDate dueDate;

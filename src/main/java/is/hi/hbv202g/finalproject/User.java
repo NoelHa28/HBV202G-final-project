@@ -1,7 +1,7 @@
 package is.hi.hbv202g.finalproject;
 
 /**
- * This abstract class represents a user in the system.
+ * Abstract class that represents a user in the system.
  * It can be subclassed to represent specific types of users.
  */
 public abstract class User {

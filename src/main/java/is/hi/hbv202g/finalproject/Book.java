@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represents a book with a title and a (list of) author(s).
+ * Class that represents a book with a title and a (list of) author(s).
  */
 public class Book {
     private String title;

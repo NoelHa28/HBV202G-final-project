@@ -13,7 +13,6 @@ public class Main
      * The main entry point for the application.
      * This method creates a library system, adds some initial data to it, and starts the UI.
      *
-     * @param args command-line arguments (not used)
      * @throws EmptyAuthorListException if an attempt is made to create a book with an empty list of authors
      * @throws UserOrBookDoesNotExistException if a user or book does not exist in the system
      */

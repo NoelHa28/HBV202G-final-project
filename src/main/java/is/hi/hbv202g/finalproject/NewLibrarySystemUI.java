@@ -6,7 +6,7 @@ import java.util.Scanner;
 import is.hi.hbv202g.finalproject.commands.*;
 
 /**
- * This class provides a user interface for the library system.
+ * Class that provides a user interface for the library system.
  * It implements the Observer interface to get updates from the library system.
  */
 public class NewLibrarySystemUI implements Observer {

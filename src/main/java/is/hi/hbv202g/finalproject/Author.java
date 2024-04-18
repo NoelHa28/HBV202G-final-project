@@ -1,7 +1,7 @@
 package is.hi.hbv202g.finalproject;
 
 /**
- * Represents an author's name.
+ * Class that represents an author's name.
  */
 public class Author {
     private String name;

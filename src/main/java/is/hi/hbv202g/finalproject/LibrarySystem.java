@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * This class represents a library system. It is a singleton class and uses the oberser pattern for updates.
+ * Class that represents a library system. It is a singleton class and uses the oberser pattern for updates.
  * It manages users, books, and lendings in the library.
  */
 public class LibrarySystem extends Observable {
