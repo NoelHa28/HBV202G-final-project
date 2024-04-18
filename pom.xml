@@ -4,11 +4,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>is.hi.hbv202g.assignment8</groupId>
-    <artifactId>Assignment8</artifactId>
+    <groupId>is.hi.hbv202g.finalproject</groupId>
+    <artifactId>FinalProject</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>HBV202G Assignment8</name>
+    <name>HBV202G Final Project </name>
+    <description>This is a description of your project.</description>
+    <url>https://github.com/NoelHa28/HBV202G-final-project</url>
+    <scm>
+        <connection>scm:git:git://github.com/NoelHa28/HBV202G-final-project.git</connection>
+        <developerConnection>scm:git:ssh://github.com/NoelHa28/HBV202G-final-project.git</developerConnection>
+        <url>https://github.com/NoelHa28/HBV202G-final-project</url>
+    </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -21,6 +28,7 @@
 
 
     <dependencies>
+    <!-- No extra dependencies, as we used libraries of the Java standard library -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -79,7 +87,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.2.0</version>
                 <configuration>
-                    <mainClass>is.hi.hbv202g.assignment8.Main</mainClass>
+                    <mainClass>is.hi.hbv202g.finalproject.Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>

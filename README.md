@@ -1,7 +1,7 @@
 # HBV202GAssignment8
 A Maven project skeleton. The provided Maven POM sets the Java version to 17.
 
-All classes need to be located in Java package `is.hi.hbv202g.assignment8`.
+All classes need to be located in Java package `is.hi.hbv202g.finalproject`.
 
 Class and method names of the submitted solution need to be **exactly** the same 
 as in the UML class diagram in the assignment PDF. 
