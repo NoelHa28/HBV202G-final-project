@@ -10,6 +10,16 @@
 
     <name>HBV202G Final Project </name>
     <description>This is the final project for the Program Design and Construction course. The code provides a user with a very basic library system.</description>
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>LICENSE</url>
+        </license>
+    </licenses>
+    <organization>
+        <name>University of Iceland</name>
+        <url>https://www.hi.is/</url>
+    </organization>
     <url>https://github.com/NoelHa28/HBV202G-final-project</url>
     <scm>
         <connection>scm:git:git://github.com/NoelHa28/HBV202G-final-project.git</connection>
@@ -113,7 +123,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.6.3</version>
+                <version>3.3.0</version>
             </plugin>
         </plugins>
     </reporting>
