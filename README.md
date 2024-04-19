@@ -2,7 +2,10 @@
 
 This is the final project for the course Software Design and Construction. It is a library management system that allows users to manage books, users and lendings. The system might not be complete and can still use some improvements in the future.
 
-## Design infos
+## Design Info
+
+More detailed information about the design can be found over here:
+
 [Design](src/site/markdown/design.md)
 
 ## Supported Maven Goals
@@ -14,15 +17,28 @@ This is the final project for the course Software Design and Construction. It is
 - `mvn test`: Runs tests for the project.
 - `mvn package`: Takes the compiled code and packages it in its distributable format, such as a JAR.
 
-## How to Package the Program
+## How to Package and Run the Program
 
-To package the program into a JAR file, run the following command in the terminal:
+To package the program into a JAR file, run one of the two following commands in the terminal:
 
 ```bash
 mvn package
 ```
+```bash
+cmd /c createjar.cmd
+```
 
-How to Run the Program
+After creating the jar file, use the following script:
+
+```bash
+cmd /c runjar
+```
+
+There already exsists a jar file in this directory, you can run this by using the following command:
+
+```bash
+java -jar FinalProject-1.0-SNAPSHOT.jar
+```
 
 ## License
 

@@ -4,7 +4,7 @@ The program is designed based on OO principles. We coded the program according t
 
 ![UML class diagram](librarysystem.png "UML class diagram for the librarysystem class")
 
-Unfortunately, this diagram is not complete. We added 3 different design patterns, which are the singleton pattern, observer pattern, and the command pattern. In the sections below, you can find more detail on this.
+Unfortunately, this diagram is not complete. For instance, the `NewLibrarySystem` class is not included in the diagram above, which provides us with a textual user interface. This is an We added 3 different design patterns, which are the singleton pattern, observer pattern, and the command pattern. In the sections below, you can find more detail on this.
 
 ## Singleton Pattern
 
