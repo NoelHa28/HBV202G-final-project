@@ -1,16 +1,26 @@
 package is.hi.hbv202g.finalproject.commands;
 
 import is.hi.hbv202g.finalproject.*;
-
 import java.util.List;
 
+/**
+ * Command to print all users in the library
+ */
 public class PrintAllUsersCommand implements Command {
     private LibrarySystem librarySystem;
 
+    /**
+     * Creates a new PrintAllUsersCommand.
+     * 
+     * @param librarySystem the library system
+     */
     public PrintAllUsersCommand(LibrarySystem librarySystem) {
         this.librarySystem = librarySystem;
     }
 
+    /**
+     * Prints all users in the library
+     */
     @Override
     public void execute() {
         List<User> users = librarySystem.getAllUsers();

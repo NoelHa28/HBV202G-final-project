@@ -1,16 +1,26 @@
 package is.hi.hbv202g.finalproject.commands;
 
 import is.hi.hbv202g.finalproject.*;
-
 import java.util.List;
 
+/**
+ * Command to print all books in the library
+ */
 public class PrintAllBooksCommand implements Command {
     private LibrarySystem librarySystem;
 
+    /**
+     * Creates a new PrintAllBooksCommand.
+     * 
+     * @param librarySystem the library system
+     */
     public PrintAllBooksCommand(LibrarySystem librarySystem) {
         this.librarySystem = librarySystem;
     }
 
+    /**
+     * Prints all books in the library
+     */
     @Override
     public void execute() {
         List<Book> books = librarySystem.getAllBooks();

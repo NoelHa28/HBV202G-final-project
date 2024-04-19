@@ -6,15 +6,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Command to add a book with multiple authors to the library system
+ */
 public class AddBookMultipleAuthorsCommand implements Command {
     private LibrarySystem librarySystem;
     private Scanner scanner;
 
+    /**
+     * Creates a new AddBookMultipleAuthorsCommand.
+     * 
+     * @param librarySystem the library system
+     * @param scanner the scanner to read input
+     */
     public AddBookMultipleAuthorsCommand(LibrarySystem librarySystem, Scanner scanner) {
         this.librarySystem = librarySystem;
         this.scanner = scanner;
     }
 
+    /**
+     * Adds a book with multiple authors to the library system
+     */
     @Override
     public void execute() {
         System.out.print("Enter book title: ");
