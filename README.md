@@ -1,6 +1,9 @@
 # HBV202G Final project
 
-This is the final project for the course Software Design and Construction. It is a library management system that allows users to manage books, users and lendings.
+This is the final project for the course Software Design and Construction. It is a library management system that allows users to manage books, users and lendings. The system might not be complete and can still use some improvements in the future.
+
+## Design infos
+[Design](src/site/markdown/design.md)
 
 ## Supported Maven Goals
 
@@ -19,8 +22,9 @@ To package the program into a JAR file, run the following command in the termina
 mvn package
 ```
 
-If you like, you can import from project directory `UML` the file 
-`library_system.uxf` into the online UML editor https://www.umletino.com/ 
-and copy/paste from there class and method names: click on a class and then, 
-you can copy from the `properties` window on the right hand side class 
-and method names.
+How to Run the Program
+
+## License
+
+[MIT License info](LICENSE)
+
