@@ -155,14 +155,14 @@ public class LibrarySystem extends Observable {
      * @param book the book to extend the lending period for.
      * @param days the number of days to extend the lending period by.
      */
-    public void extendLending(User andri, Book book, int days) {
+    public void extendLending(User user, Book book, int days) {
         for (Lending lending : this.lendings) {
-            if (lending.getBook().equals(book) && lending.getUser().equals(andri)) {
+            if (lending.getBook().equals(book) && lending.getUser().equals(user)) {
                 lending.setDueDate(lending.getDueDate().plusDays(days));
                 break;
             }
         }
-        notifyObservers(andri.getName() + " extended the lending of " + book.getTitle() + " by " + days + " days");
+        notifyObservers(user.getName() + " extended the lending of " + book.getTitle() + " by " + days + " days");
     }
 
     /**
